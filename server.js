@@ -17,6 +17,13 @@ app.use(morgan('dev'))
 app.use('/api/v1/auth',require('./routes/userRoutes'))
 app.use('/api/v1/post',require('./routes/postRoutes'))
 
+app.get("/",(req,resp)=>{
+    resp.status(200).send({
+        "success":true,
+        "msg":"Node Server Running"
+    })
+})
+
 const PORT=process.env.PORT || 8080
 
 app.listen(PORT,()=>{
